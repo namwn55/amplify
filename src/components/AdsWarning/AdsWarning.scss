@@ -1,0 +1,56 @@
+#fb-container {
+    
+    min-height: 51vh;
+    display: flex;
+    justify-content: center;
+
+    .panel-fb-ads{
+        margin-top: 2%;
+        width: 60%;
+        border-radius: 10px;
+        min-width: 380px;
+    }
+
+    .metIcon {
+        margin-top: 3%;
+        width: 8%;
+        min-width: 120px;
+        min-height: 30px;
+    }
+
+    .title {
+        font-size: 2.3rem;
+    }
+
+    .panel-notify{
+        background-color: #eaeaea;
+        width: 40%;
+        display: flex;
+        align-items: center; /* Center items vertically */
+        padding: 10px;
+        border-radius: 5px;
+        min-width: 350px;
+        .warning-icon{
+            width: 12%;
+            height: 12%;
+        }
+        .text-notify{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-left: 5%;
+            
+            p{
+                font-size: 0.8rem;
+                strong{
+                    font-size: 1rem;
+                }
+            }
+            
+        }
+    }
+
+    button{
+        width: 98%;
+    }
+}

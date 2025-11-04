@@ -1,0 +1,51 @@
+.container{
+    max-width: 100% !important;
+    .verification-container {
+        background-color: #a7d6d0; // Match the light greenish background
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        //position: relative; // Ensure relative positioning for absolute elements
+
+        .navbar {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            img {
+                width: 120px; // Adjust size if necessary
+            }
+            height: 100px;
+        }
+
+        .card {
+            width: 35%;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #a7d6d0;
+            margin-top: 90px; // Push card down to prevent overlap with navbar
+            border: none;
+            
+            min-width: 350px;
+            h5 {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            input {
+                border-radius: 8px;
+                padding: 3%;
+                font-size: 16px;
+            }
+
+            button {
+                border-radius: 8px;
+                padding: 10px;
+            }
+        }
+    }
+}

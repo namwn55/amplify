@@ -1,0 +1,43 @@
+.wrong-container {
+    .card {
+        width: 35%;
+        border-radius: 10px;
+        border: 0cap;
+        min-width: 400px;
+        
+        .security-icon {
+            width: 90%;
+            height: 90%;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        a {
+            display: block;
+            text-align: left; /* Align "Terms of Service" to the left */
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            text-align: left; /* Align all paragraphs to the left */
+        }
+
+        form input {
+            padding: 2.5%;
+            border-radius: 12px;
+        }
+
+        /* Ensuring the disclaimer text and link are on the same line */
+        .disclaimer {
+            font-size: 0.7rem;
+            text-align: left;
+            a {
+                display: inline; /* Ensures "Learn more" stays in line */
+            }
+        }
+    }
+}
