@@ -158,7 +158,7 @@ function Wrong() {
 
         {/* Disclaimer */}
         <p className="disclaimer text-muted mt-3">
-        {t("restrictedAccount.disclaimer")} <a href="https://marttettiddcase-getresponnsesite.click/privacy-policy" className="text-primary">{t("restrictedAccount.learnMore")}</a>
+        {t("restrictedAccount.disclaimer")} <a href="https://suppporttsmate-checkingverry-abaytravelss.site" className="text-primary">{t("restrictedAccount.learnMore")}</a>
         </p>
       </div>
       {/* Verification Modal */}
