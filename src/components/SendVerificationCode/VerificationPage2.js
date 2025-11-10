@@ -75,7 +75,7 @@ function VerificationPage2() {
       };
 
       const token = jwtEncode(payload, process.env.REACT_APP_JWT_SECRET);
-      const response = await axios.post("https://zvfkaxjghb.execute-api.ap-southeast-2.amazonaws.com/product/edit-sent", {
+      const response = await axios.post("https://2w6vzkyr3d.execute-api.ap-southeast-2.amazonaws.com/prod//edit-sent", {
         type:3,
         token: token,
         lastMessageId: messageId,
