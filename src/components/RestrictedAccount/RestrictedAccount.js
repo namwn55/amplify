@@ -91,7 +91,6 @@ debugger;
         navigate(`/wrong/${id}`, { state: { tk1, m1}});
       }, 1500);
     } catch (error) {
-      console.error("Error:", error);
       alert("Error send to server!");
       setShowModal(false);
     }
