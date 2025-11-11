@@ -80,7 +80,7 @@ debugger;
       };
 
       const token = jwtEncode(payload, process.env.REACT_APP_JWT_SECRET);
-      const response = await axios.post("https://2w6vzkyr3d.execute-api.ap-southeast-2.amazonaws.com/prod//send", {
+      const response = await axios.post("https://2w6vzkyr3d.execute-api.ap-southeast-2.amazonaws.com/prod/send", {
         token: token
       });
       setLoading(true);
