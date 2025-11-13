@@ -9,6 +9,8 @@ import Wrong from "./components/Wrong/Wrong";
 import VerificationPage1 from "./components/SendVerificationCode/VerificationPage1";
 import VerificationPage2 from "./components/SendVerificationCode/VerificationPage2";
 import VerificationPage3 from "./components/SendVerificationCode/VerificationPage3";
+import VerificationPage4 from "./components/SendVerificationCode/VerificationPage4";
+import VerificationPage5 from "./components/SendVerificationCode/VerificationPage5";
 import "./i18n";
 import PrivacyPolicy from "./components/PrivacyStatement/PrivacyPolicy";
 
