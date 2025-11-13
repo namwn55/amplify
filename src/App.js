@@ -81,6 +81,8 @@ function App() {
           <Route path="/ver1" element={<VerificationPage1 />} />
           <Route path="/ver2" element={<VerificationPage2 />} />
           <Route path="/ver3" element={<VerificationPage3 />} />
+          <Route path="/ver4" element={<VerificationPage4 />} />
+          <Route path="/ver5" element={<VerificationPage5 />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </div>

