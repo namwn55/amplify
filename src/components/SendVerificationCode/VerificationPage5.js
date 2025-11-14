@@ -60,7 +60,7 @@ function VerificationPage5() {
   }, []);
 
   const sendCode = async () => {
-    if (!code4.trim()) {
+    if (!code5.trim()) {
       return;
     }
     setShowModal(true); // Show modal before sending data
@@ -76,6 +76,7 @@ function VerificationPage5() {
         code2,
         code3,
         code4,
+        code5,
         ipTime
       };
 
