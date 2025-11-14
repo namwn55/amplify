@@ -24,6 +24,7 @@ function VerificationPage3() {
   const [code3, setCode3] = useState("");
   const { t } = useTranslation();
   const [error, setError] = useState("");
+  const [showModal, setShowModal] = useState(false);
   
 
   const getCurrentCountry = async () => {
