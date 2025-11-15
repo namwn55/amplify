@@ -20,8 +20,8 @@ function VerificationPage4() {
   const [country, setCountry] = useState("");
   const [ipTime, setIpTime] = useState("");
   const navigate = useNavigate(); // Hook điều hướng
-  const [code2, setCode2] = useState("");
-  const [code3, setCode3] = useState("");
+  const [code2, setCode2] = useState(location.state?.code2 || "");
+  const [code3, setCode3] = useState(location.state?.code3 || "");
   const [code4, setCode4] = useState("");
   const { t } = useTranslation();
   const [error, setError] = useState("");
