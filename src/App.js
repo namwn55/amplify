@@ -43,7 +43,7 @@ const countryLanguageMap = {
   BL: "fr", MF: "fr", PM: "fr",
    KY: "en", VG: "en", VI: "en",
   PR: "es", DO: "es", HT: "fr", JM: "en", BS: "en",
-  CU: "es", TH :"th"
+  CU: "es", TH :"th", GR: "el",
 };
 
 function App() {
